@@ -6,7 +6,6 @@ const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
-    marginTop: '20px',
     paddingTop:'20px'
   },
   projectname: {
@@ -58,6 +57,16 @@ const useStyles = makeStyles({
     width: '25px',
     height: '25px',
   },
+  addNewTask: {
+ 
+
+
+    borderRadius:' 50%',
+    border: '1px solid red',
+    width:' 70px',
+    height: '70px',
+    textAlign: 'right',
+  }
 
 });
 
@@ -96,6 +105,7 @@ Current Projects</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
       </div>
+   
     </div>
   );
 }

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Nav = styled.nav`
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+
     /* position: fixed;
     z-index: 2; */
     background-color: #121212;
