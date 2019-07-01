@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     background: '#000',
     height: '800px',
     marginTop: '20px',
-    paddingTop:'20px'
+    paddingTop: '20px',
   },
   projectname: {
     color: '#E0E0E0',
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     alignContent: 'center',
     padding: '10px',
     alignItems: 'center',
-    alignContent: 'center',
+    // alignContent: 'center',
   },
   timetracker: {
     color: '#FFFFE0B2',
@@ -51,7 +51,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
     marginRight: '8px',
     borderRadius: '11px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   actionButton: {
     color: '#A5A5A5',
@@ -72,9 +72,11 @@ export default function ProjectList() {
         padding: '10px',
       }}
       >
-Current Projects</p>
+Current Projects
+
+      </p>
       <div className={classes.projectcontainer}>
-       
+
         <div>
           <p className={classes.projectname}> Project Name</p>
           <p className={classes.clientname}>Client Name</p>
