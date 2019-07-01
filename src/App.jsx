@@ -3,7 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <h1>Satoshi's Law</h1>
+    <div>
+      <h1>Satoshi's Law</h1>
+    </div>
   );
 }
 
