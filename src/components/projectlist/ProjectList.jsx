@@ -6,7 +6,8 @@ const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
-
+    marginTop: '20px',
+    paddingTop:'20px'
   },
   projectname: {
     color: '#E0E0E0',
@@ -71,14 +72,13 @@ export default function ProjectList() {
       <p style={{
         color: '#9F9F9F',
         fontSize: '1.2rem',
-        margin: '3px 0',
+        margin: '3px 6px',
         padding: '10px',
       }}
       >
-Current Projects
-
-      </p>
+Current Projects</p>
       <div className={classes.projectcontainer}>
+       
         <div>
           <p className={classes.projectname}> Project Name</p>
           <p className={classes.clientname}>Client Name</p>
