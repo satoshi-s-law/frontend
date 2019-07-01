@@ -1,17 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Nav = styled.nav`
     display: flex;
     align-items: center;
-    margin-top: 0rem;
-    top: 0;
-    position: fixed;
-    z-index: 2;
+
+    /* position: fixed;
+    z-index: 2; */
     background-color: #121212;
     width: 100%;
-    height: 40px;
+    height: 70px;
     span {
         margin: 0 1rem;
         color: #ff9800;

@@ -6,12 +6,10 @@ const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
-    marginTop: '0px',
     paddingTop:'20px'
   },
   projectname: {
     color: '#E0E0E0',
-
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontWeight: 'bold',
@@ -20,9 +18,6 @@ const useStyles = makeStyles({
     /* identical to box height */
   },
   clientname: {
-    /* Client Name */
-
-
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -62,6 +57,16 @@ const useStyles = makeStyles({
     width: '25px',
     height: '25px',
   },
+  addNewTask: {
+ 
+
+
+    borderRadius:' 50%',
+    border: '1px solid red',
+    width:' 70px',
+    height: '70px',
+    textAlign: 'right',
+  }
 
 });
 
@@ -98,9 +103,9 @@ export default function ProjectList() {
         <div className={classes.timecontainer}>
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
-
         </div>
       </div>
+   
     </div>
   );
 }
