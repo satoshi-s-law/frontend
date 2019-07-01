@@ -1,12 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import playcircleoutline from './playcircleoutline.png';
-
+import addButton from './addbutton.png'
 const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
-    paddingTop:'20px'
+    paddingTop:'1px',
+    display: 'flex',
+    flexDirection: 'column'
   },
   projectname: {
     color: '#E0E0E0',
@@ -59,13 +61,19 @@ const useStyles = makeStyles({
   },
   addNewTask: {
  
-
-
     borderRadius:' 50%',
-    border: '1px solid red',
     width:' 70px',
     height: '70px',
-    textAlign: 'right',
+    
+    
+    textAlign: 'center',
+   
+    backgroundImage: 'linear-gradient(175deg,#85E1D7 , #167268 , #167268 )',
+    color: 'red',
+    bottom: '4.75em',
+    right: '1em',
+    position: 'fixed',
+  
   }
 
 });
@@ -74,6 +82,7 @@ export default function ProjectList() {
   const classes = useStyles();
   return (
     <div className={classes.projectListContainer}>
+   
       <p style={{
         color: '#9F9F9F',
         fontSize: '1.2rem',
@@ -105,6 +114,7 @@ Current Projects</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
       </div>
+      <button className={classes.addNewTask}><img src={addButton} style={{width: '25px;', height: '25px'}}/></button>
    
     </div>
   );
