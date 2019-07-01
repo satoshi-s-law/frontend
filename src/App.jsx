@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import NavBar from './components/navigation/navigation';
 
 function App() {
   return (
-    <h1>Satoshi's Law</h1>
+    <div>
+      <NavBar />
+    </div>
   );
 }
 
