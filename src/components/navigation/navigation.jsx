@@ -6,6 +6,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     margin-top: 0rem;
+    top: 0;
     position: fixed;
     z-index: 2;
     background-color: #121212;
