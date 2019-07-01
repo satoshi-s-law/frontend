@@ -81,9 +81,9 @@ export default function ProjectList() {
         padding: '10px',
       }}
       >
-Current Projects</p>
+      Current Projects</p>
       <div className={classes.projectcontainer}>
-       
+
         <div>
           <p className={classes.projectname}> Project Name</p>
           <p className={classes.clientname}>Client Name</p>
