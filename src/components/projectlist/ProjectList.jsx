@@ -6,6 +6,8 @@ const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
+    marginTop: '20px',
+    paddingTop:'20px'
   },
   projectname: {
     color: '#E0E0E0',
@@ -27,8 +29,8 @@ const useStyles = makeStyles({
   },
   projectcontainer: {
     background: '#212121',
-    margin: '3px 0',
-    padding: '10px',
+    margin: '4px 0',
+    padding: '12px 16px',
     display: 'flex',
     alignContent: 'center',
     justifyContent: 'space-between',
@@ -41,14 +43,15 @@ const useStyles = makeStyles({
     alignContent: 'center',
   },
   timetracker: {
-    border: '1px solid #FFFFE0B2',
-    borderRadius: '11px',
-    width: '70px',
-    padding: '5px',
-    textAlign: 'center',
-    margin: 'auto 0',
     color: '#FFFFE0B2',
-    marginRight: '32px',
+    /* width: 70px; */
+    border: '1px solid #FFFFE0B2',
+    margin: 'auto 0',
+    padding: '4px 8px',
+    textAlign: 'center',
+    marginRight: '8px',
+    borderRadius: '11px',
+    boxSizing: 'border-box'
   },
   actionButton: {
     color: '#A5A5A5',
@@ -65,14 +68,13 @@ export default function ProjectList() {
       <p style={{
         color: '#9F9F9F',
         fontSize: '1.2rem',
-        margin: '3px 0',
+        margin: '3px 6px',
         padding: '10px',
       }}
       >
-Current Projects
-
-      </p>
+Current Projects</p>
       <div className={classes.projectcontainer}>
+       
         <div>
           <p className={classes.projectname}> Project Name</p>
           <p className={classes.clientname}>Client Name</p>
