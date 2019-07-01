@@ -11,7 +11,6 @@ const useStyles = makeStyles({
   },
   projectname: {
     color: '#E0E0E0',
-
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontWeight: 'bold',
@@ -20,9 +19,6 @@ const useStyles = makeStyles({
     /* identical to box height */
   },
   clientname: {
-    /* Client Name */
-
-
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -98,7 +94,6 @@ Current Projects</p>
         <div className={classes.timecontainer}>
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
-
         </div>
       </div>
     </div>
