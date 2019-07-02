@@ -19,6 +19,8 @@ const Label = styled.div`
     padding: 1rem;
     color: white;
     font-size: 12px;
+    font-family: 'Montserrat';
+    margin-left: 1em;
 `;
 
 const Input = styled.input`
@@ -26,13 +28,14 @@ const Input = styled.input`
     outline: none;
     background-color: #212121;
     color: white;
-    border-left: ${props => (props.primary ? '1px solid white' : 'none')};
+    border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
+    font-family: 'Montserrat';
 `;
-
+const greySky = '#979797'
 const ProjectForm = () => (
   <Div>
     <form>
-      <Label>
+      <Label style={{marginLeft: '1em'}}>
 CLIENT NAME
         {' '}
         <br />
@@ -40,8 +43,9 @@ CLIENT NAME
       </Label>
       <div style={{
         display: 'flex',
-        border: '1px solid white',
+        borderTop: '1px solid '+greySky,
         width: '100%',
+
       }}
       >
         <div style={{ width: '50%' }}>
@@ -52,7 +56,7 @@ CLIENT NAME
             <Input type="text" />
           </Label>
         </div>
-        <div style={{ borderLeft: '1px solid white' }}>
+        <div style={{ borderLeft: '1px solid '+greySky }}>
           <Label>
             END TIME
             {' '}
@@ -61,7 +65,7 @@ CLIENT NAME
           </Label>
         </div>
       </div>
-      <div style={{ display: 'flex', border: '1px solid white' }}>
+      <div style={{ display: 'flex', border: '1px solid '+greySky }}>
         <Label>
           DURATION
           {' '}
