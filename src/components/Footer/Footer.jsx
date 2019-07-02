@@ -1,7 +1,7 @@
-import React from "react";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
@@ -11,13 +11,13 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     background: '#808080',
     color: '#808080',
-    "&$selected": {
+    '&$selected': {
       color: '#808080',
       // color: '#eebf7a'
     },
   },
-  selected: {}
-})
+  selected: {},
+});
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
@@ -29,21 +29,25 @@ export default function SimpleBottomNavigation() {
       onChange={(event, newValue) => {
         setValue(newValue);
       }}
-      showLabels={true}
+      showLabels
       className={classes.root}
     >
-      <BottomNavigationAction 
-        label="Timer" 
-        icon={<i className="fas fa-clock"></i>} />
-      <BottomNavigationAction 
-        label="Archives" 
-        icon={<i className="fas fa-list-ul"></i>} />
-      <BottomNavigationAction 
-        label="Account" 
-        icon={<i className="fas fa-user-friends"></i>} />
-      <BottomNavigationAction 
-        label="Settings" 
-        icon={<i className="fas fa-cog"></i>} />
+      <BottomNavigationAction
+        label="Timer"
+        icon={<i className="fas fa-clock" />}
+      />
+      <BottomNavigationAction
+        label="Archives"
+        icon={<i className="fas fa-list-ul" />}
+      />
+      <BottomNavigationAction
+        label="Account"
+        icon={<i className="fas fa-user-friends" />}
+      />
+      <BottomNavigationAction
+        label="Settings"
+        icon={<i className="fas fa-cog" />}
+      />
     </BottomNavigation>
   );
 }

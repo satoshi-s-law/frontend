@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import closebutton from "./closebutton.png"
+import closebutton from './closebutton.png';
+
 const Nav = styled.nav`
     display: flex;
     width: 100%;
@@ -24,50 +25,23 @@ const Nav = styled.nav`
     }
 `;
 
-
-const greySky = '#979797'
-const ProductHeader = (props) => 
-
-{
-  const properties = props
-
-  
-
-return (
+const ProductHeader = () => (
   <Nav>
     <div>
 
       <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
-      <img src={closebutton} alt="close this screen" style={{width: '25px', height: '25px', margin: '25px',cursor: 'pointer'}}/>
-     
-    </NavLink>
+        <img
+          src={closebutton}
+          alt="close this screen"
+          style={{
+            width: '25px', height: '25px', margin: '25px', cursor: 'pointer',
+          }}
+        />
+      </NavLink>
 
-</div>
-  <button type="submit" style={{ color: '#FFE0B2', textDecoration: 'none' }}><h2 style={{ fontSize: '16px', marginTop: '1.5rem' }} >SAVE</h2></button>
-       {/* <form>
-        <label htmlFor="Project" style={{ fontSize: '12px',marginLeft: '1em'} }>
-PROJECT NAME
-          {' '}
-          <br />
-          <input
-            type="text"
-            id="Project"
-            style={{
-              outline: 'none',
-              border: 'none',
-              marginTop: '10px',
-              borderBottom: '1px solid ' + greySky,
-              backgroundColor: '#383633',
-              color: 'white',
-              fontSize: '16px',
-            }}
-          />
-        </label>
-      </form> */}
-    
-  
+    </div>
+    <button type="submit" style={{ color: '#FFE0B2', textDecoration: 'none' }}><h2 style={{ fontSize: '16px', marginTop: '1.5rem' }}>SAVE</h2></button>
   </Nav>
-)
-}
+);
 
 export default ProductHeader;

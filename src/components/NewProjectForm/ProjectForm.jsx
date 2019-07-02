@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ProductHeader from './ProductHeader';
 import addTasks from "./addtasks.png"
 import { thisExpression } from '@babel/types';
@@ -25,15 +27,17 @@ const Label = styled.div`
     font-family: 'Montserrat';
     margin-left: 1em;
 `;
+const greySky = '#979797';
 
 const Input = styled.input`
     border: none;
     outline: none;
     background-color: #212121;
     color: white;
-    border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
+    border-left: ${props => (props.primary ? `1px solid ${greySky}` : 'none')};
     font-family: 'Montserrat';
 `;
+
 const TasksForm = styled.form`
 background: #212121;
 display: flex;
@@ -98,13 +102,21 @@ this.props.history.push("/")
   return (
     <div>
   <Div>
-
-    <form id="projectform" onSubmit={this.handleSubmit}>
-    <ProductHeader {...this.props}/>
-    <label htmlFor="Project" style={{ fontSize: '12px',paddingLeft: '1.6em', paddingBottom: '10px', background: '#383633', color: "#fff"} }>
+        <form id="projectform" onSubmit={this.handleSubmit}>
+          <ProductHeader {...this.props} />
+          <label
+            htmlFor="Project"
+            style={{
+              fontSize: '12px',
+              paddingLeft: '1.6em',
+              paddingBottom: '10px',
+              background: '#383633',
+              color: '#fff',
+            }}
+          >
 PROJECT NAME
-          {' '}
-          <br />
+            {' '}
+            <br />
           </label>
           <input
             type="text"
@@ -113,28 +125,15 @@ PROJECT NAME
               outline: 'none',
               border: 'none',
               paddingRight: '1.6em',
-              borderBottom: '1px solid ' + greySky,
+              borderBottom: `1px solid ${greySky}`,
               backgroundColor: '#383633',
               color: 'white',
               fontSize: '16px',
             }}
-            name="projectName" 
+            name="projectName"
             onChange={this.handleChange}
           />
-       
-      <Label >
-CLIENT NAME
-        {' '}
-        <br />
-        <Input type="text" name="clientName" onChange={this.handleChange}/>
-      </Label>
-      <div style={{
-        display: 'flex',
-        borderTop: '1px solid '+greySky,
-        width: '100%',
 
-      }}
-      >
 
       <div>
       <Label  style={{
@@ -169,3 +168,8 @@ DURATION
 )}
 }
 export default ProjectForm;
+
+ProjectForm.propTypes = {
+  addProjectToState: PropTypes.func.isRequired,
+  history: PropTypes.shape(PropTypes.any).isRequired,
+};
