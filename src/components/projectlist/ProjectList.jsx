@@ -131,8 +131,7 @@ export default function ProjectList(props) {
      
 
         <div>
-          <p className={classes.projectname}> Project Name</p>
-          <p className={classes.clientname}>Client Name</p>
+         
 
         {props.projectList.map((project, i)=>{
         return ( 
