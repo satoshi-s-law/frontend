@@ -11,7 +11,7 @@ const HomePage = (props) => {
   return (
     <div>
       <Navigation />
-      <ProjectList {...props} projectList={props.projects} submitAddTask={props.submitAddTask} />
+      <ProjectList {...props} projectList={projectList} submitAddTask={submitAddTask} />
       <Footer />
     </div>
   );
