@@ -1,12 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { NavLink } from 'react-router-dom';
 import playcircleoutline from './playcircleoutline.png';
+import addButton from './addbutton.png';
 
 const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
-    height: '800px',
-    paddingTop:'20px'
+    height: '700px',
+    paddingTop:'1px',
+    display: 'flex',
+    flexDirection: 'column',
   },
   projectname: {
     color: '#E0E0E0',
@@ -39,7 +43,7 @@ const useStyles = makeStyles({
     alignContent: 'center',
     padding: '10px',
     alignItems: 'center',
-    alignContent: 'center',
+    // alignContent: 'center',
   },
   timetracker: {
     color: '#FFFFE0B2',
@@ -50,7 +54,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
     marginRight: '8px',
     borderRadius: '11px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   actionButton: {
     color: '#A5A5A5',
@@ -58,15 +62,20 @@ const useStyles = makeStyles({
     height: '25px',
   },
   addNewTask: {
- 
-
-
-    borderRadius:' 50%',
-    border: '1px solid red',
-    width:' 70px',
+    borderRadius: ' 50%',
+    width: ' 70px',
     height: '70px',
-    textAlign: 'right',
-  }
+
+
+    textAlign: 'center',
+
+    backgroundImage: 'linear-gradient(175deg,#85E1D7 , #167268 , #167268 )',
+    color: 'red',
+    bottom: '5.5em',
+    right: '1em',
+    position: 'fixed',
+
+  },
 
 });
 
@@ -81,7 +90,9 @@ export default function ProjectList() {
         padding: '10px',
       }}
       >
-      Current Projects</p>
+      Current Projects
+
+      </p>
       <div className={classes.projectcontainer}>
 
         <div>
@@ -104,8 +115,10 @@ export default function ProjectList() {
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
+        <NavLink to="/add-task">
+          <button className={classes.addNewTask}><img src={addButton} style={{ width: '25px;', height: '25px' }} /></button>
+        </NavLink>
       </div>
-   
     </div>
   );
 }
