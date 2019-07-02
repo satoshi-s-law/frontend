@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
     display: flex;
@@ -26,7 +27,13 @@ const Nav = styled.nav`
 const ProductHeader = () => (
   <Nav>
     <div>
-      <span style={{ fontSize: '25px' }}>X</span>
+      <span style={{ fontSize: '25px', cursor: 'pointer' }}>
+        <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
+        X
+
+        </NavLink>
+
+      </span>
       <form>
         <label htmlFor="Project" style={{ fontSize: '12px' }}>
 PROJECT NAME
@@ -48,7 +55,7 @@ PROJECT NAME
         </label>
       </form>
     </div>
-    <h2 style={{ fontSize: '16px', marginTop: '1.5rem' }}>SAVE</h2>
+    <NavLink to="/" style={{ color: '#FFE0B2', textDecoration: 'none' }}><h2 style={{ fontSize: '16px', marginTop: '1.5rem' }}>SAVE</h2></NavLink>
   </Nav>
 );
 
