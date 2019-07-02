@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProductHeader from './ProductHeader';
 
 const Div = styled.div`
     display: flex;
@@ -32,14 +33,61 @@ const Input = styled.input`
     font-family: 'Montserrat';
 `;
 const greySky = '#979797'
-const ProjectForm = () => (
+
+class ProjectForm extends React.Component {
+  
+  state = {
+    projectName: null,//string 
+    clientName:null, //string 
+    timeStart: null, //string 2pm
+    timeEnd: null //string 1am
+  }
+
+handleChange = (e) => {
+  e.preventDefault();
+  this.setState({
+    [e.target.name] : e.target.value
+  } 
+  )
+}
+
+handleSubmit = (e) =>{
+e.preventDefault()
+this.props.addProjectToState(this.state)
+this.props.history.push("/")
+}
+ render() {
+  return (
   <Div>
-    <form>
+
+    <form id="projectform" onSubmit={this.handleSubmit}>
+    <ProductHeader {...this.props}/>
+    <label htmlFor="Project" style={{ fontSize: '12px',paddingLeft: '1.6em', paddingBottom: '10px', background: '#383633', color: "#fff"} }>
+PROJECT NAME
+          {' '}
+          <br />
+          </label>
+          <input
+            type="text"
+            id="Project"
+            style={{
+              outline: 'none',
+              border: 'none',
+              paddingRight: '1.6em',
+              borderBottom: '1px solid ' + greySky,
+              backgroundColor: '#383633',
+              color: 'white',
+              fontSize: '16px',
+            }}
+            name="projectName" 
+            onChange={this.handleChange}
+          />
+       
       <Label >
 CLIENT NAME
         {' '}
         <br />
-        <Input type="text" />
+        <Input type="text" name="clientName" onChange={this.handleChange}/>
       </Label>
       <div style={{
         display: 'flex',
@@ -48,12 +96,13 @@ CLIENT NAME
 
       }}
       >
+
         <div style={{ width: '50%' }}>
           <Label>
               START TIME
             {' '}
             <br />
-            <Input type="text" />
+            <Input type="text" name="timeStart" onChange={this.handleChange} placeholder="8am"/>
           </Label>
         </div>
         <div style={{ borderLeft: '1px solid '+greySky }}>
@@ -61,20 +110,12 @@ CLIENT NAME
             END TIME
             {' '}
             <br />
-            <Input type="text" />
+            <Input type="text" name="timeEnd" onChange={this.handleChange} placeholder="5pm"/>
           </Label>
         </div>
       </div>
-      <div style={{ display: 'flex', border: '1px solid '+greySky }}>
-        <Label>
-          DURATION
-          {' '}
-          <br />
-          <Input type="text" />
-        </Label>
-      </div>
     </form>
   </Div>
-);
-
+)}
+}
 export default ProjectForm;

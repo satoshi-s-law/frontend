@@ -24,18 +24,27 @@ const Nav = styled.nav`
     }
 `;
 
+
 const greySky = '#979797'
-const ProductHeader = () => (
+const ProductHeader = (props) => 
+
+{
+  const properties = props
+
+  
+
+return (
   <Nav>
     <div>
-        
-      <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
-      <img src={closebutton} style={{width: '25px', height: '25px', margin: '25px',cursor: 'pointer'}}/>
-     
 
+      <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
+      <img src={closebutton} alt="close this screen" style={{width: '25px', height: '25px', margin: '25px',cursor: 'pointer'}}/>
+     
     </NavLink>
 
-       <form>
+</div>
+  <button type="submit" style={{ color: '#FFE0B2', textDecoration: 'none' }}><h2 style={{ fontSize: '16px', marginTop: '1.5rem' }} >SAVE</h2></button>
+       {/* <form>
         <label htmlFor="Project" style={{ fontSize: '12px',marginLeft: '1em'} }>
 PROJECT NAME
           {' '}
@@ -54,10 +63,11 @@ PROJECT NAME
             }}
           />
         </label>
-      </form>
-    </div>
-    <NavLink to="/" style={{ color: '#FFE0B2', textDecoration: 'none' }}><h2 style={{ fontSize: '16px', marginTop: '1.5rem' }}>SAVE</h2></NavLink>
+      </form> */}
+    
+  
   </Nav>
-);
+)
+}
 
 export default ProductHeader;

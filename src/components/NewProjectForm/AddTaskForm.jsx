@@ -1,13 +1,12 @@
 import React from 'react';
-import Nav from './ProductHeader';
 import ProjectForm from './ProjectForm';
 
 // form thing to fill out
 
-const AddTaskForm = () => (
+const AddTaskForm = (props) => (
+
   <div>
-    <Nav />
-    <ProjectForm />
+    <ProjectForm {...props} />
   </div>
 );
 
