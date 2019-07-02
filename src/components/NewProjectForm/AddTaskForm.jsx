@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './ProductHeader';
+import Nav from '../projects/ProductNav';
 import ProjectForm from './ProjectForm';
 
 // form thing to fill out

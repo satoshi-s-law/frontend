@@ -1,14 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { NavLink } from 'react-router-dom';
 import playcircleoutline from './playcircleoutline.png';
-import addButton from './addbutton.png'
+import addButton from './addbutton.png';
+
 const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '800px',
-    paddingTop:'1px',
+    paddingTop: '1px',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   projectname: {
     color: '#E0E0E0',
@@ -60,20 +62,20 @@ const useStyles = makeStyles({
     height: '25px',
   },
   addNewTask: {
-    borderRadius:' 50%',
-    width:' 70px',
+    borderRadius: ' 50%',
+    width: ' 70px',
     height: '70px',
-    
-    
+
+
     textAlign: 'center',
-   
+
     backgroundImage: 'linear-gradient(175deg,#85E1D7 , #167268 , #167268 )',
     color: 'red',
     bottom: '4.75em',
     right: '1em',
     position: 'fixed',
-  
-  }
+
+  },
 
 });
 
@@ -81,7 +83,6 @@ export default function ProjectList() {
   const classes = useStyles();
   return (
     <div className={classes.projectListContainer}>
-   
       <p style={{
         color: '#9F9F9F',
         fontSize: '1.2rem',
@@ -89,7 +90,9 @@ export default function ProjectList() {
         padding: '10px',
       }}
       >
-      Current Projects</p>
+      Current Projects
+
+      </p>
       <div className={classes.projectcontainer}>
 
         <div>
@@ -112,7 +115,10 @@ export default function ProjectList() {
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
-      <button className={classes.addNewTask}><img src={addButton} style={{width: '25px;', height: '25px'}}/></button>
+        <NavLink to="/add-task">
+          <button className={classes.addNewTask}><img src={addButton} style={{ width: '25px;', height: '25px' }} /></button>
+        </NavLink>
+      </div>
     </div>
   );
 }
