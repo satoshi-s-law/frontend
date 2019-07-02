@@ -146,7 +146,7 @@ const I = styled.i`
     cursor: pointer;
     color: #ebbc77;
   }
-`
+`;
 
 const ProjectCard = () => (
   <PageDiv>
