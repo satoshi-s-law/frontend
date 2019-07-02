@@ -5,6 +5,10 @@ import styled from 'styled-components';
 const Nav = styled.nav`
     display: flex;
     align-items: center;
+    padding: 0px 3%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 2rem; 
 
     /* position: fixed;
     z-index: 2; */
@@ -13,7 +17,7 @@ const Nav = styled.nav`
     height: 70px;
     span {
         margin: '0 1rem';
-        color: #ff9800;
+        color: #ebbc77; 
         text-align: center;
     }
 `;

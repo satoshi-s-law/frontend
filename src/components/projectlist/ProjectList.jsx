@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import playcircleoutline from './playcircleoutline.png';
 import addButton from './addbutton.png';
 
@@ -55,6 +55,7 @@ const useStyles = makeStyles({
     marginRight: '8px',
     borderRadius: '11px',
     boxSizing: 'border-box',
+    fontFamily: "'Montserrat',sans-serif",
   },
   actionButton: {
     color: '#A5A5A5',
@@ -88,6 +89,7 @@ export default function ProjectList() {
         fontSize: '1.2rem',
         margin: '3px 6px',
         padding: '10px',
+        fontFamily: "'Montserrat',sans-serif",
       }}
       >
       Current Projects
@@ -115,9 +117,9 @@ export default function ProjectList() {
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
-        <NavLink to="/add-task">
+        {/* <NavLink to="/add-task"> */}
           <button className={classes.addNewTask}><img src={addButton} style={{ width: '25px;', height: '25px' }} /></button>
-        </NavLink>
+        {/* </NavLink> */}
       </div>
     </div>
   );
