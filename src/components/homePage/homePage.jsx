@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes, { string } from 'prop-types';
-// import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ProjectList from '../ProjectList/ProjectList';
 import styled from 'styled-components';
@@ -16,12 +16,8 @@ const HomePage = (props) => {
   return (
     <HomePageDiv>
       <Navigation />
-      <ProjectList 
-        {...props} 
-        projectList={props.projects} 
-        submitAddTask={props.submitAddTask} 
-      />
-      {/* <Footer /> */}
+      <ProjectList {...props} projectList={projectList} submitAddTask={submitAddTask} />
+      <Footer />
     </HomePageDiv>
   );
 };
