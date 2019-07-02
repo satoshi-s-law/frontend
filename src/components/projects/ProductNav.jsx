@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import closebutton from "./closebutton.png"
+
+
 const Nav = styled.nav`
     display: flex;
     width: 100%;
+    margin-top: 1rem;
     background-color: #383633;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -23,8 +24,6 @@ const Nav = styled.nav`
         color: #FFE0B2
     }
 `;
-const spaghetti; 
-const greySky = '#979797'
 const ProductHeader = () => (
   <Nav>
     <div>
@@ -35,9 +34,8 @@ const ProductHeader = () => (
         </NavLink>
 
       </span>
-      <img src={closebutton} style={{width: '25px', height: '25px', margin: '25px'}}/>
       <form>
-        <label htmlFor="Project" style={{ fontSize: '12px',marginLeft: '1em'} }>
+        <label htmlFor="Project" style={{ fontSize: '12px' }}>
 PROJECT NAME
           {' '}
           <br />
@@ -48,7 +46,7 @@ PROJECT NAME
               outline: 'none',
               border: 'none',
               marginTop: '10px',
-              borderBottom: '1px solid ' + greySky,
+              borderBottom: '1px solid white',
               backgroundColor: '#383633',
               color: 'white',
               fontSize: '16px',
