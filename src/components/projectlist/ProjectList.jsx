@@ -79,40 +79,7 @@ const useStyles = makeStyles({
 
 });
 
-const handleHourCount = (project) => {
-  const morning = 'am';
-  const evening = 'pm';
-  const timeObject = {
-    hourEnded: null,
-    hourStarted: null,
-  };
-  console.log(project);
-  if (project.timeEnd.includes(morning)) {
-    if (parseInt(project.timeEnd.split(morning)[0]) !== 12) {
-      timeObject.hourEnded = parseInt(project.timeEnd.split(morning)[0]);
-    } else {
-      timeObject.hourEnded = 0;
-    }
-  } else {
-    timeObject.hourEnded = parseInt(project.timeEnd.split(evening)[0]) + 12;
-  }
-  if (project.timeStart.includes(morning)) {
-    if (parseInt(project.timeStart.split(morning)[0]) !== 12) {
-      timeObject.hourStarted = parseInt(project.timeStart.split(morning)[0]);
-    } else {
-      timeObject.hourStarted = 0;
-    }
-  } else if (parseInt(project.timeStart.split(evening)[0]) !== 12) {
-    timeObject.hourStarted = parseInt(project.timeStart.split(evening)[0]) + 12;
-  } else {
-    timeObject.hourStarted = 12;
-  }
-  const totalHours = timeObject.hourEnded - timeObject.hourStarted;
-  if (totalHours >= 0) {
-    return totalHours;
-  }
-  return -1 * totalHours;
-};
+
 
 export default function ProjectList(props) {
   const classes = useStyles();
@@ -135,18 +102,22 @@ export default function ProjectList(props) {
 
         {props.projectList.map((project, i)=>{
         return ( 
-          <div className={classes.projectcontainer} onClick={()=>props.history.push("/add-task")}>
+          <Link to={{pathname: `/project/${i}`, state :{
+            project: project,
+          }}} >
+          <div className={classes.projectcontainer} key={i}>
           <div>
           <p className={classes.projectname}>{project.projectName}</p>
           <p className={classes.clientname}>{project.clientName}</p>
         </div>
         <div className={classes.timecontainer}>
-          <p className={classes.timetracker}>00:00 hrs</p>
-          <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p>
-          <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
+          <p className={classes.timetracker}>{project.duration >= 10 ? project.duration : '0' + project.duration}:00</p>
+       <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
 
-      </div>)
+      </div>
+      </Link>
+      )
         
 
         })}
