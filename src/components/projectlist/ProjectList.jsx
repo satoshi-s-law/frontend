@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import playcircleoutline from './playcircleoutline.png';
 import addButton from './addbutton.png';
 
@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
     height: '700px',
-    paddingTop:'1px',
+    paddingTop: '1px',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -79,50 +79,46 @@ const useStyles = makeStyles({
 
 });
 
-const handleHourCount = (project)=>{
+const handleHourCount = (project) => {
   const morning = 'am';
-  const evening = 'pm'
+  const evening = 'pm';
   const timeObject = {
     hourEnded: null,
-    hourStarted: null
+    hourStarted: null,
+  };
+  console.log(project);
+  debugger;
+  if (project.timeEnd.includes(morning)) {
+    if (parseInt(project.timeEnd.split(morning)[0]) !== 12) {
+      timeObject.hourEnded = parseInt(project.timeEnd.split(morning)[0]);
+    } else {
+      timeObject.hourEnded = 0;
+    }
+  } else {
+    timeObject.hourEnded = parseInt(project.timeEnd.split(evening)[0]) + 12;
   }
- if(project.timeEnd.includes(morning)){
-  if(parseInt(project.timeEnd.split(morning)[0])!=12){
-    timeObject.hourEnded = parseInt(project.timeEnd.split(morning)[0])
-  } else{
-    timeObject.hourEnded = 0
+  if (project.timeStart.includes(morning)) {
+    if (parseInt(project.timeStart.split(morning)[0]) !== 12) {
+      timeObject.hourStarted = parseInt(project.timeStart.split(morning)[0]);
+    } else {
+      timeObject.hourStarted = 0;
+    }
+  } else if (parseInt(project.timeStart.split(evening)[0]) !== 12) {
+    timeObject.hourStarted = parseInt(project.timeStart.split(evening)[0]) + 12;
+  } else {
+    timeObject.hourStarted = 12;
   }
- } else{
-  timeObject.hourEnded =  parseInt(project.timeEnd.split(evening)[0])+12
- }
- if(project.timeStart.includes(morning)){
-  if(parseInt(project.timeStart.split(morning)[0])!=12){
-  timeObject.hourStarted = parseInt(project.timeStart.split(morning)[0])
-} else{
-  timeObject.hourStarted=0
-}
-} 
-else{
-  if(parseInt(project.timeStart.split(evening)[0])!=12){
-    timeObject.hourStarted =  parseInt(project.timeStart.split(evening)[0]) +12
-  } else{
-    timeObject.hourStarted = 12
+  const totalHours = timeObject.hourEnded - timeObject.hourStarted;
+  if (totalHours >= 0) {
+    return totalHours;
   }
-  
-}
-let totalHours = timeObject.hourEnded - timeObject.hourStarted
-if(totalHours >= 0){
-  return totalHours
-}else{
-  return -1 * totalHours
-}
+  return -1 * totalHours;
+};
 
-} 
-
-export default function ProjectList(props) {
+function ProjectList(props) {
   const classes = useStyles();
   return (
-    <div className={classes.projectListContainer} >
+    <div className={classes.projectListContainer}>
       <p style={{
         color: '#9F9F9F',
         fontSize: '1.2rem',
@@ -133,26 +129,33 @@ export default function ProjectList(props) {
       Current Projects
 
       </p>
-      
-        {props.projectList.map((project, i)=>{
-        return ( 
-          <div className={classes.projectcontainer} onClick={()=>props.history.push("/add-task")}>
-          <div>
-          <p className={classes.projectname}>{project.projectName}</p>
-          <p className={classes.clientname}>{project.clientName}</p>
-        </div>
-        <div className={classes.timecontainer}>
-          <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p>
-          <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
-        </div>
-        </div>
-        )
 
-        })}
-       
-   
-        <button className={classes.addNewTask}><Link to="/add-task" ><img src={addButton} alt="add a new project" style={{ width: '25px', height: '25px' }} />   </Link></button>
-   
+      {props.projectList.map(project => (
+        <div className={classes.projectcontainer} onClick={() => props.history.push('/add-task')}>
+          <div>
+            <p className={classes.projectname}>{project.projectName}</p>
+            <p className={classes.clientname}>{project.clientName}</p>
+          </div>
+          <div className={classes.timecontainer}>
+            <p className={classes.timetracker}>
+              {handleHourCount(project) >= 10 ? handleHourCount : `0${handleHourCount(project)}`}
+:00
+            </p>
+            <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
+          </div>
+        </div>
+      ))}
+
+
+      <button className={classes.addNewTask}>
+        <Link to="/add-task">
+          <img src={addButton} alt="add a new project" style={{ width: '25px', height: '25px' }} />
+          {' '}
+        </Link>
+      </button>
+
     </div>
   );
 }
+
+export default withRouter(ProjectList);
