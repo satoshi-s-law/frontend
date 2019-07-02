@@ -112,7 +112,8 @@ export default function ProjectList() {
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
-      <button className={classes.addNewTask}><img src={addButton} style={{width: '25px;', height: '25px'}}/></button>
+      <button className={classes.addNewTask}><img src={addButton} alt="close button" style={{width: '25px', height: '25px'}}/></button>
+    </div>
     </div>
   );
 }

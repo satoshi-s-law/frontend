@@ -1,6 +1,5 @@
 import React from 'react';
-import Footer from '../Footer';
-import ProjectCard from '../projectlist/ProjectCard';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ProjectList from '../ProjectList/ProjectList';
 
