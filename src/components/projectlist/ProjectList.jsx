@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Link, withRouter } from 'react-router-dom';
@@ -80,8 +81,9 @@ const useStyles = makeStyles({
 });
 
 
-export default function ProjectList(props) {
+function ProjectList(props) {
   const classes = useStyles();
+  const { projectList } = props;
   return (
     <div className={classes.projectListContainer}>
       <p style={{
@@ -94,40 +96,47 @@ export default function ProjectList(props) {
       Current Projects
 
       </p>
-     
 
-        <div>
-         
 
-        {props.projectList.map((project, i)=>{
-        return ( 
+      <div>
+        {projectList.map((project, i) => (
 
-          <Link to={{pathname: `/project/${i}`, state :{
-            project: project,
-          }}} >
-          <div className={classes.projectcontainer} key={i}>
-          <div>
-          <p className={classes.projectname}>{project.projectName}</p>
-          <p className={classes.clientname}>{project.clientName}</p>
-        </div>
-        <div className={classes.timecontainer}>
-          <p className={classes.timetracker}>{project.duration >= 10 ? project.duration : '0' + project.duration}:00</p>
-       <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
-        </div>
+          <Link to={{
+            pathname: `/project/${i}`,
+            state: {
+              project,
+            },
+          }}
+          >
+            <div className={classes.projectcontainer} key={i}>
+              <div>
+                <p className={classes.projectname}>{project.projectName}</p>
+                <p className={classes.clientname}>{project.clientName}</p>
+              </div>
+              <div className={classes.timecontainer}>
+                <p className={classes.timetracker}>
+                  {project.duration >= 10 ? project.duration : `0${project.duration}`}
+:00
+                </p>
+                <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
+              </div>
 
-      </div>
-      </Link>
-      )
-
-        })}
+            </div>
+          </Link>
+        ))}
         )
-        </div>
+      </div>
 
 
-        <button className={classes.addNewTask}><Link to="/add-task" ><img src={addButton} alt="add a new project" style={{ width: '25px', height: '25px' }} />   </Link></button>
+      <button className={classes.addNewTask}>
+        <Link to="/add-task">
+          <img src={addButton} alt="add a new project" style={{ width: '25px', height: '25px' }} />
+          {' '}
+        </Link>
+      </button>
 
     </div>
   );
-
 }
 
+export default withRouter(ProjectList);
