@@ -14,7 +14,7 @@ class App extends React.Component {
       projectName: "Code Hackathon",
       clientName: "Lambda School",
       duration: 5,
-
+      tasks : []
     }
   ]
   }
