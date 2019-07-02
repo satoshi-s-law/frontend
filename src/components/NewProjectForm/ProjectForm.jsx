@@ -35,7 +35,7 @@ const greySky = '#979797'
 const ProjectForm = () => (
   <Div>
     <form>
-      <Label style={{marginLeft: '1em'}}>
+      <Label >
 CLIENT NAME
         {' '}
         <br />

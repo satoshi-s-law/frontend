@@ -27,15 +27,14 @@ const greySky = '#979797'
 const ProductHeader = () => (
   <Nav>
     <div>
-      <span style={{ fontSize: '25px', cursor: 'pointer' }}>
-        <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
-        X
+        
+      <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
+      <img src={closebutton} style={{width: '25px', height: '25px', margin: '25px',cursor: 'pointer'}}/>
+     
 
-        </NavLink>
+    </NavLink>
 
-      </span>
-      <img src={closebutton} style={{width: '25px', height: '25px', margin: '25px'}}/>
-      <form>
+       <form>
         <label htmlFor="Project" style={{ fontSize: '12px',marginLeft: '1em'} }>
 PROJECT NAME
           {' '}
