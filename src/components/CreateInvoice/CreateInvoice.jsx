@@ -184,7 +184,7 @@ const CreateInvoice = (props) => {
                         <Task>Polish Code</Task>
                     </div>
                     <div>
-                        <Duration>{props.location != null ? props.location.state.project.duration : null}</Duration>
+                        <Duration>{props.location != null ? props.location.state.project.duration : null} hours </Duration>
                         <Duration>12 hours</Duration>
                         <Duration>5 hours</Duration>
                         <Duration>2 hours</Duration>
