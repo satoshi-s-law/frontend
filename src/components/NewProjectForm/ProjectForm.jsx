@@ -3,7 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ProductHeader from './ProductHeader';
-
+import addTasks from "./addtasks.png"
+import { thisExpression } from '@babel/types';
+const greySky = '#979797'
 const Div = styled.div`
     display: flex;
     background-color: #212121;
@@ -36,38 +38,70 @@ const Input = styled.input`
     font-family: 'Montserrat';
 `;
 
+const TasksForm = styled.form`
+background: #212121;
+display: flex;
+   justify-content: left;
+   padding: 1em 0;
+   flex-direction: column;
+  
+ button{
+   background: #212121;
+   color:${greySky};
+   border: none;
+   width: 50%;
+
+ }
+ input{
+  border-bottom: 1px solid ${greySky}
+  width: 100%;
+ }
+
+`
+
+
 
 class ProjectForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      projectName: null,
-      clientName: null,
-      duration: null,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  
+  state = {
+    projectName: null,//string 
+    clientName:null, //string 
+    duration: null, //string hour 8
+    tasks : [],// array of strings
+    task: null
   }
 
-  handleChange(e) {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
+handleChange = (e) => {
+  e.preventDefault();
+  this.setState({
+    [e.target.name] : e.target.value
+  } 
+  )
+}
+handleTasksChange = (e) =>{
+  
+e.preventDefault()
+this.setState({
+  task: e.target.value
+})
+}
+handleTasksSubmit = (e)=>{
+  e.preventDefault();
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const { addProjectToState, history } = this.props;
-    addProjectToState(this.state);
-    // eslint-disable-next-line react/prop-types
-    history.push('/');
-  }
+  this.setState({
+    tasks: [...this.state.tasks, this.state.task]
+  })
 
-  render() {
-    return (
-      <Div>
-
+}
+handleSubmit = (e) =>{
+e.preventDefault()
+this.props.addProjectToState(this.state)
+this.props.history.push("/")
+}
+ render() {
+  return (
+    <div>
+  <Div>
         <form id="projectform" onSubmit={this.handleSubmit}>
           <ProductHeader {...this.props} />
           <label
@@ -100,33 +134,38 @@ PROJECT NAME
             onChange={this.handleChange}
           />
 
-          <Label>
-CLIENT NAME
-            {' '}
-            <br />
-            <Input type="text" name="clientName" onChange={this.handleChange} />
-          </Label>
-          <div style={{
-            display: 'flex',
-            borderTop: `1px solid ${greySky}`,
-            width: '100%',
 
-          }}
-          >
+      <div>
+      <Label  style={{
+        display: 'flex',
+        borderBottom: '1px solid '+greySky,
+        width: '100%',
 
-            <div>
-              <Label>
+      }} >
 DURATION
-                {' '}
-                <br />
-                <Input type="text" name="duration" onChange={this.handleChange} />
-              </Label>
-            </div>
-          </div>
-        </form>
-      </Div>
-    );
-  }
+        {' '}
+        <br />
+        <Input type="text" name="duration"  onChange={this.handleChange}/>
+      </Label>
+      </div>
+      </div>
+    
+    </form>
+    
+  </Div>
+    <ul style={{listStyleType: 'disc', background: "#212121", paddingLeft:' 5em'}}>
+      {this.state.tasks.map((task,i) =>{
+        return <li key={i} style={{ color: greySky, fontSize: '1.2rem'}}>{task}</li>
+      })}
+    </ul>
+  <TasksForm id="tasksform" onSubmit= {this.handleTasksSubmit}>
+    <button type="submit" >
+      <img src={addTasks} /> Add Tasks
+      </button>
+      <Input type="text" name="tasks"  onChange={this.handleTasksChange}/>
+      </TasksForm>
+      </div>
+)}
 }
 export default ProjectForm;
 

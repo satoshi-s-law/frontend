@@ -31,9 +31,17 @@ class App extends React.Component {
     });
   }
 
-  submitAddTask() {
 
-  }
+  state = {
+    projectList : [
+    {
+      projectName: "Code Hackathon",
+      clientName: "Lambda School",
+      duration: 5,
+      tasks : []
+    }
+  ]
+
 
   // have this base projectlist here. In AddToTask, projectlist will push objects into it
   // Projectlsit will also map over projects, and display time accordingly
