@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import HomePage from './components/homePage/homePage';
+import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
 import axios from 'axios'
 

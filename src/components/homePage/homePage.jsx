@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes, { string } from 'prop-types';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
-import ProjectList from '../Projectlist/ProjectList';
+import ProjectList from '../ProjectList/ProjectList';
 
 
 const HomePage = (props) => {
