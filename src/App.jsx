@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/add-task" component={AddTaskForm} />
+      {/* <Route exact path="/add-task" component={AddTaskForm} /> */}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import playcircleoutline from './playcircleoutline.png';
 import addButton from './addbutton.png';
 
@@ -115,9 +115,9 @@ export default function ProjectList() {
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
-        <NavLink to="/add-task">
-          <button className={classes.addNewTask}><img src={addButton} style={{ width: '25px;', height: '25px' }} /></button>
-        </NavLink>
+     
+          <button className={classes.addNewTask}><Link to="/add-task" ><img src={addButton} style={{ width: '25px', height: '25px' }} />   </Link></button>
+     
       </div>
     </div>
   );
