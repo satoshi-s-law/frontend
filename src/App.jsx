@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
 import CreateInvoice from './components/CreateInvoice/CreateInvoice';
+import SentInvoice from './components/SentInvoice/SentInvoice';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,6 +57,11 @@ class App extends React.Component {
           exact
           path="/project/:id"
           render={props => <CreateInvoice projectList={projectList} {...props} />}
+        />
+        <Route
+          exact
+          path="/success"
+          component={SentInvoice}
         />
       </div>
     );

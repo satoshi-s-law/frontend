@@ -180,7 +180,11 @@ const CreateInvoice = (props) => {
       </ContactOptionBar>
       <SendDiv>
         <BlankDiv />
-        <Button>SEND</Button>
+        <NavLink to="/success" activeStyle={{ color: '#ebbc77' }} style={{ color: '#ebbc77' }}>
+          {' '}
+          <Button>SEND</Button>
+          {' '}
+        </NavLink>
       </SendDiv>
       <ProjectDiv>
         <ProjectName>{location != null ? location.state.project.projectName : null}</ProjectName>
@@ -217,4 +221,3 @@ hours
 };
 
 export default CreateInvoice;
-
