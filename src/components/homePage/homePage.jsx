@@ -1,11 +1,13 @@
-import React from "react";
-import Footer from "../Footer/Footer";
-import Navigation from "../navigation/navigation";
-import ProjectList from "../projectlist/ProjectList";
+import React from 'react';
+import PropTypes, { string } from 'prop-types';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
+import ProjectList from '../Projectlist/ProjectList';
 
-const HomePage= (props)=> {
- console.log(props)
 
+const HomePage = (props) => {
+  const { projectList, submitAddTask } = props;
+  console.log(props);
     return (
       <div>
         <Navigation />
@@ -17,3 +19,8 @@ const HomePage= (props)=> {
 }
 
 export default HomePage;
+
+HomePage.propTypes = {
+  projectList: PropTypes.arrayOf(string).isRequired,
+  submitAddTask: PropTypes.func.isRequired,
+};
