@@ -138,11 +138,11 @@ export default function ProjectList(props) {
         return ( 
           <div className={classes.projectcontainer} onClick={()=>props.history.push("/add-task")}>
           <div>
-          <p className={classes.projectname}>{project.projectName}</p>
+          <p className={classes.projectname}>{project.name}</p>
           <p className={classes.clientname}>{project.clientName}</p>
         </div>
         <div className={classes.timecontainer}>
-          <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p>
+          {/* <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p> */}
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
         </div>

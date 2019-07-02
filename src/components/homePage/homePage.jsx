@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../Footer/Footer";
-import Navigation from "../Navigation/Navigation";
-import ProjectList from "../ProjectList/ProjectList";
+import Navigation from "../navigation/navigation";
+import ProjectList from "../projectlist/ProjectList";
 
 const HomePage= (props)=> {
  console.log(props)
@@ -9,7 +9,7 @@ const HomePage= (props)=> {
     return (
       <div>
         <Navigation />
-        <ProjectList {...props} projectList={props.projectList} submitAddTask={props.submitAddTask} />
+        <ProjectList {...props} projectList={props.projects} submitAddTask={props.submitAddTask} />
         <Footer />
       </div>
     );
