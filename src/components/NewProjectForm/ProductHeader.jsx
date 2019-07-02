@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import closebutton from "./closebutton.png"
 const Nav = styled.nav`
     display: flex;
     width: 100%;
-    margin-top: 1rem;
     background-color: #383633;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -26,7 +25,7 @@ const Nav = styled.nav`
 const ProductHeader = () => (
   <Nav>
     <div>
-      <span style={{ fontSize: '25px' }}>X</span>
+      <img src={closebutton} style={{width: '25px', height: '25px', margin: '25px'}}/>
       <form>
         <label htmlFor="Project" style={{ fontSize: '12px' }}>
 PROJECT NAME
@@ -48,7 +47,7 @@ PROJECT NAME
         </label>
       </form>
     </div>
-    <h2 style={{ fontSize: '16px', marginTop: '1.5rem' }}>SAVE</h2>
+    <h2 style={{ fontSize: '2.0rem', margin: '40px' }}>SAVE</h2>
   </Nav>
 );
 
