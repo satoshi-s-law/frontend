@@ -4,7 +4,6 @@ import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ProjectList from '../ProjectList/ProjectList';
 import styled from 'styled-components';
-import SentInvoice from '../SentInvoice/SentInvoice';
 
 const HomePageDiv = styled.div`
   height: 100vh;
@@ -16,10 +15,9 @@ const HomePage = (props) => {
   console.log(props);
   return (
     <HomePageDiv>
-      <SentInvoice />
-      {/* <Navigation />
+      <Navigation />
       <ProjectList {...props} projectList={projectList} submitAddTask={submitAddTask} />
-      <Footer /> */}
+      <Footer />
     </HomePageDiv>
   );
 };

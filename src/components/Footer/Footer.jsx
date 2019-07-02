@@ -11,6 +11,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     background: '#808080',
     color: '#808080',
+    position: 'fixed',
     "&$selected": {
       color: '#808080',
       // color: '#eebf7a'

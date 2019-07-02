@@ -89,6 +89,7 @@ export default function ProjectList(props) {
         fontSize: '1.2rem',
         margin: '3px 6px',
         padding: '10px',
+        fontFamily: 'Montserrat',
       }}
       >
       Current Projects
