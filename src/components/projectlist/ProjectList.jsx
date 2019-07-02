@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     alignContent: 'center',
     padding: '10px',
     alignItems: 'center',
-    alignContent: 'center',
+    // alignContent: 'center',
   },
   timetracker: {
     color: '#FFFFE0B2',
@@ -52,7 +52,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
     marginRight: '8px',
     borderRadius: '11px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   actionButton: {
     color: '#A5A5A5',
@@ -60,7 +60,6 @@ const useStyles = makeStyles({
     height: '25px',
   },
   addNewTask: {
- 
     borderRadius:' 50%',
     width:' 70px',
     height: '70px',
@@ -90,9 +89,9 @@ export default function ProjectList() {
         padding: '10px',
       }}
       >
-Current Projects</p>
+      Current Projects</p>
       <div className={classes.projectcontainer}>
-       
+
         <div>
           <p className={classes.projectname}> Project Name</p>
           <p className={classes.clientname}>Client Name</p>
@@ -113,9 +112,7 @@ Current Projects</p>
           <p className={classes.timetracker}>00:00 hrs</p>
           <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
         </div>
-      </div>
       <button className={classes.addNewTask}><img src={addButton} style={{width: '25px;', height: '25px'}}/></button>
-   
     </div>
   );
 }
