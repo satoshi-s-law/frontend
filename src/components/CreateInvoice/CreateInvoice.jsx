@@ -134,7 +134,9 @@ const PageDiv = styled.div`
     font-family: 'Montserrat', sans-serif;
 `
 
-const CreateInvoice = () => {
+const CreateInvoice = (props) => {
+    // console.log(props)
+    console.log(props)
     return(
         <PageDiv>
             <Header>
@@ -147,11 +149,11 @@ const CreateInvoice = () => {
             </ContactOptionBar>
             <SendDiv>
                 <BlankDiv></BlankDiv>
-                <Button>SEND</Button>
+                <Button >SEND</Button>
             </SendDiv>
             <ProjectDiv>
-                <ProjectName>Summer Hackathon</ProjectName>
-                <ClientName>Lambda School</ClientName>
+                <ProjectName>{props.location != null ? props.location.state.project.projectName : null}</ProjectName>
+                <ClientName>{props.location != null ? props.location.state.project.clientName : null}</ClientName>
                 <TaskDetailDiv>
                     <Date>7/1/19</Date>
                     <div>
@@ -162,7 +164,7 @@ const CreateInvoice = () => {
                         <Task>Polish Code</Task>
                     </div>
                     <div>
-                        <Duration>3 hours</Duration>
+                        <Duration>{props.location != null ? props.location.state.project.duration : null}</Duration>
                         <Duration>12 hours</Duration>
                         <Duration>5 hours</Duration>
                         <Duration>2 hours</Duration>
@@ -171,7 +173,7 @@ const CreateInvoice = () => {
                 </TaskDetailDiv>
                 <TaskTotal>
                     <Date>TOTAL</Date>
-                    <Date>24 hours</Date>
+                    <Date>{props.location != null ? props.location.state.project.duration : null} hours</Date>
                 </TaskTotal>
             </ProjectDiv>
 

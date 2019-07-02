@@ -3,8 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
-import axios from './axios'
-
+import CreateInvoice from './components/CreateInvoice/CreateInvoice'
 
 class App extends React.Component {
 
@@ -14,8 +13,7 @@ class App extends React.Component {
     {
       projectName: "Code Hackathon",
       clientName: "Lambda School",
-      timeStart: '4am',
-      timeEnd: '6pm'
+      duration: 5,
 
     }
   ]
@@ -78,6 +76,9 @@ class App extends React.Component {
       <Route exact path="/add-task" render={(props)=>(
         <AddTaskForm  projectList={this.state.projectList} addProjectToState={this.addProjectToState} {...props}/>
         )}/>
+        <Route exact path="/project/:id" render={(props)=>{
+          return <CreateInvoice projectList={this.state.projectList} {...props} />
+        }} />
     </div>
   )
 }

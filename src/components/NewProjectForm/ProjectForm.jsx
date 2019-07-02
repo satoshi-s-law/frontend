@@ -39,8 +39,7 @@ class ProjectForm extends React.Component {
   state = {
     projectName: null,//string 
     clientName:null, //string 
-    timeStart: null, //string 2pm
-    timeEnd: null //string 1am
+    duration: null, //string hour 8
   }
 
 handleChange = (e) => {
@@ -97,7 +96,16 @@ CLIENT NAME
       }}
       >
 
-        <div style={{ width: '50%' }}>
+      <div>
+      <Label >
+DURATION
+        {' '}
+        <br />
+        <Input type="text" name="duration" onChange={this.handleChange}/>
+      </Label>
+      </div>
+      {/* Getting Rid Of Start And End Time with duration only */}
+        {/* <div style={{ width: '50%' }}>
           <Label>
               START TIME
             {' '}
@@ -112,7 +120,7 @@ CLIENT NAME
             <br />
             <Input type="text" name="timeEnd" onChange={this.handleChange} placeholder="5pm"/>
           </Label>
-        </div>
+        </div> */}
       </div>
     </form>
   </Div>
