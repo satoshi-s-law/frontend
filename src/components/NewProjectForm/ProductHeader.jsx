@@ -22,6 +22,7 @@ const Nav = styled.nav`
         color: #FFE0B2
     }
 `;
+const spaghetti; 
 const greySky = '#979797'
 const ProductHeader = () => (
   <Nav>
