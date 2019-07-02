@@ -128,7 +128,6 @@ function ProjectList(props) {
       Current Projects
 
       </p>
-
       {props.projectList.map(project => (
         <div>
           <div className={classes.projectcontainer} onClick={() => props.history.push('/add-task')}>
@@ -138,23 +137,11 @@ function ProjectList(props) {
             <p className={classes.clientname}>{project.clientName}</p>
           </div>
           <div className={classes.timecontainer}>
-            <p className={classes.timetracker}>
-              {handleHourCount(project) >= 10 ? handleHourCount : `0${handleHourCount(project)}`}
-:00
-            </p>
+            {/* <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p> */}
             <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
           </div>
         </div>
       ))}
-
-
-      <button className={classes.addNewTask}>
-        <Link to="/add-task">
-          <img src={addButton} alt="add a new project" style={{ width: '25px', height: '25px' }} />
-          {' '}
-        </Link>
-      </button>
-======= --> */}
               <p className={classes.projectname}>{project.name}</p>
               <p className={classes.clientname}>{project.clientName}</p>
             </div>
