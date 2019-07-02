@@ -1,8 +1,10 @@
 import React from 'react';
 import Footer from '../Footer/Footer';
+
 import ProjectCard from '../Projectlist/ProjectCard';
-import Navigation from '../navigation/Navigation';
-import ProjectList from '../Projectlist/ProjectList';
+import Navigation from '../Navigation/Navigation';
+import ProjectList from '../ProjectList/ProjectList';
+
 
 const HomePage = () => (
   <div>

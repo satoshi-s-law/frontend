@@ -7,8 +7,8 @@ import addButton from './addbutton.png';
 const useStyles = makeStyles({
   projectListContainer: {
     background: '#000',
-    height: '800px',
-    paddingTop: '1px',
+    height: '700px',
+    paddingTop:'1px',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
 
     backgroundImage: 'linear-gradient(175deg,#85E1D7 , #167268 , #167268 )',
     color: 'red',
-    bottom: '4.75em',
+    bottom: '5.5em',
     right: '1em',
     position: 'fixed',
 
