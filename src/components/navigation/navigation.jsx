@@ -5,22 +5,22 @@ import styled from 'styled-components';
 const Nav = styled.nav`
     display: flex;
     align-items: center;
-
-    /* position: fixed;
-    z-index: 2; */
-    background-color: #121212;
+    background-color: #212121;
     width: 100%;
     height: 70px;
     span {
-        margin: '0 1rem';
-        color: #ff9800;
+        color: #ebbc77;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.3rem;
+        font-weight: 900;
         text-align: center;
+        width: 100%;
     }
 `;
 
 const Navigation = () => (
   <Nav>
-    <span> SATOSHI'S LAW</span>
+    <span>SATOSHI'S LAW</span>
   </Nav>
 );
 

@@ -80,7 +80,6 @@ const useStyles = makeStyles({
 });
 
 
-
 export default function ProjectList(props) {
   const classes = useStyles();
   return (
@@ -102,6 +101,7 @@ export default function ProjectList(props) {
 
         {props.projectList.map((project, i)=>{
         return ( 
+
           <Link to={{pathname: `/project/${i}`, state :{
             project: project,
           }}} >
@@ -118,7 +118,6 @@ export default function ProjectList(props) {
       </div>
       </Link>
       )
-        
 
         })}
         )
@@ -129,5 +128,6 @@ export default function ProjectList(props) {
 
     </div>
   );
+
 }
 

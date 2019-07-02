@@ -3,20 +3,19 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
-import CreateInvoice from './components/CreateInvoice/CreateInvoice'
+import CreateInvoice from './components/CreateInvoice/CreateInvoice';
 
 class App extends React.Component {
 
 
   state = {
     projectList : [
-    {
-      projectName: "Code Hackathon",
-      clientName: "Lambda School",
-      duration: 5,
-
-    }
-  ]
+      {
+        projectName: "Code Hackathon",
+        clientName: "Lambda School",
+        duration: 5,
+      }
+    ]
   }
 
     // componentDidMount() {
@@ -71,17 +70,17 @@ class App extends React.Component {
 //Projectlsit will also map over projects, and display time accordingly
   render(){
     return (
-    <div>
-      <Route exact path="/" render={()=> <HomePage  projectList={this.state.projectList} {...this.props} submitAddTask={this.submitAddTask} />} />
-      <Route exact path="/add-task" render={(props)=>(
-        <AddTaskForm  projectList={this.state.projectList} addProjectToState={this.addProjectToState} {...props}/>
+      <div>
+        <Route exact path="/" render={()=> <HomePage  projectList={this.state.projectList} {...this.props} submitAddTask={this.submitAddTask} />} />
+        <Route exact path="/add-task" render={(props)=>(
+          <AddTaskForm  projectList={this.state.projectList} addProjectToState={this.addProjectToState} {...props}/>
         )}/>
         <Route exact path="/project/:id" render={(props)=>{
-          return <CreateInvoice projectList={this.state.projectList} {...props} />
+            return <CreateInvoice projectList={this.state.projectList} {...props} />
         }} />
-    </div>
-  )
-}
+      </div>
+    )
+  }
 }
 
 export default App;
