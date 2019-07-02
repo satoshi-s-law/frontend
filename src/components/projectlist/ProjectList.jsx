@@ -87,7 +87,6 @@ const handleHourCount = (project) => {
     hourStarted: null,
   };
   console.log(project);
-  debugger;
   if (project.timeEnd.includes(morning)) {
     if (parseInt(project.timeEnd.split(morning)[0]) !== 12) {
       timeObject.hourEnded = parseInt(project.timeEnd.split(morning)[0]);
@@ -131,9 +130,10 @@ function ProjectList(props) {
       </p>
 
       {props.projectList.map(project => (
-        <div className={classes.projectcontainer} onClick={() => props.history.push('/add-task')}>
-          <div>
-<!-- <<<<<<< ft-add-props-validation
+        <div>
+          <div className={classes.projectcontainer} onClick={() => props.history.push('/add-task')}>
+            <div>
+              {/* <!-- <<<<<<< ft-add-props-validation
             <p className={classes.projectname}>{project.projectName}</p>
             <p className={classes.clientname}>{project.clientName}</p>
           </div>
@@ -154,17 +154,22 @@ function ProjectList(props) {
           {' '}
         </Link>
       </button>
-======= -->
-          <p className={classes.projectname}>{project.name}</p>
-          <p className={classes.clientname}>{project.clientName}</p>
-        </div>
-        <div className={classes.timecontainer}>
-          {/* <p className={classes.timetracker}>{handleHourCount(project) >= 10 ? handleHourCount : '0' + handleHourCount(project)}:00</p> */}
-          <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
-        </div>
-        </div>
-        )
+======= --> */}
+              <p className={classes.projectname}>{project.name}</p>
+              <p className={classes.clientname}>{project.clientName}</p>
+            </div>
+            <div className={classes.timecontainer}>
+              <p className={classes.timetracker}>
+                {handleHourCount(project) >= 10 ? handleHourCount : `0${handleHourCount(project)}`}
+:00
+              </p>
+              <img src={playcircleoutline} alt="src-images" className={classes.actionButton} />
+            </div>
+          </div>
+          {/* ))} */}
 
+        </div>
+      ))}
     </div>
   );
 }

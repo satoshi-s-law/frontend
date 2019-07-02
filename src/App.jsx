@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import HomePage from './components/homePage/homePage';
+import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
-import axios from 'axios'
+import axios from './axios'
 
 
 class App extends React.Component {
@@ -16,12 +16,8 @@ class App extends React.Component {
     componentDidMount() {
       //get clients
       axios
-      .get('https://api.clockify.me/api/v1/workspaces/5cf6e9a6b07987371ebcf369/clients', {
-        headers: {
-          'X-Api-Key' : 'XPbc4lnaZRbCOFAB'
-        }
-      } 
-      ).then(res => {
+      .get('/workspaces/5cf6e9a6b07987371ebcf369/clients')
+      .then(res => {
         console.log(res)
         this.setState({
           // clients: res.data[0].name,
@@ -32,12 +28,8 @@ class App extends React.Component {
       })  
       
       axios
-      .get('https://api.clockify.me/api/v1/workspaces/5cf6e9a6b07987371ebcf369/projects', {
-        headers: {
-          'X-Api-Key' : 'XPbc4lnaZRbCOFAB'
-        }
-      } 
-      ).then(res => {
+      .get('/workspaces/5cf6e9a6b07987371ebcf369/projects')
+      .then(res => {
         console.log(res)
         this.setState({
           // projectList : [
