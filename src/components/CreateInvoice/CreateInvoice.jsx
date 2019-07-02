@@ -8,11 +8,18 @@ const Header = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 30px 8% 30px 8%;
+    @media(min-width: 1000px) {
+        padding: 30px 25% 30px 25%;
+    }
 `
 const Icon = styled.i`
     font-size: 1.6rem;
     width: 1%;
     text-align: right;
+    &:hover{
+        cursor: pointer;
+        color: #ebbc77;
+    }
 `
 const H1 = styled.h1`
     font-family: 'Montserrat', sans-serif;
@@ -39,6 +46,9 @@ const ContactOptionBar = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 10px 8%;
+    @media(min-width: 1000px) {
+        padding: 10px 20% 10px 20%;
+    }
 `
 const Button = styled.button`
     color: #ebbc77;
@@ -52,6 +62,8 @@ const Button = styled.button`
     &:hover{
         font-weight: bold;
         cursor: pointer;
+        padding: 4px 6px 5px 6px;
+        box-shadow: 3px 3px #ebbc77;
     }
 `
 
@@ -71,11 +83,18 @@ const SendDiv = styled.div`
     justify-content: flex-start;
     padding: 30px 3% 30px 3%;
     border-bottom: 1px solid rgb(174,174,174,0.3);
+    @media(min-width: 1000px) {
+        padding: 30px 20% 30px 20%;
+    }
 `
 
 const ProjectDiv = styled.div`
     background-color: #000000;
     padding: 0px 8%;
+    height: 100vh;    
+    @media(min-width: 1000px) {
+        padding: 0px 20% 0px 20%;
+    }
 `
 
 const TaskDetailDiv = styled.div`
@@ -129,6 +148,7 @@ const TaskTotal = styled.div`
     display: flex;
     justify-content: space-between;
 `
+
 
 const PageDiv = styled.div`
     font-family: 'Montserrat', sans-serif;

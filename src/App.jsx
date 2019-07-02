@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import AddTaskForm from './components/NewProjectForm/AddTaskForm';
+import CreateInvoice from './components/CreateInvoice/CreateInvoice';
+import ProjectCard from './components/ProjectList/ProjectCard';
 import axios from './axios'
 
 
@@ -70,6 +72,8 @@ class App extends React.Component {
       <Route exact path="/add-task" render={(props)=>(
         <AddTaskForm  projectList={this.state.projectList} addProjectToState={this.addProjectToState} {...props}/>
         )}/>
+      <Route exact path="/card" render={()=> <CreateInvoice  />} />
+      <Route exact path="/project-card" render={()=> <ProjectCard  />} />
     </div>
   )
 }
