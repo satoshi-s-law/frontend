@@ -169,7 +169,7 @@ const CreateInvoice = props => {
           {props.location != null
               ? props.location.state.project.tasks.map(task => {
                   duration += parseFloat(task.taskDuration);
-                  return <Duration>{task.taskDuration}</Duration>;
+                  return <Duration>{task.taskDuration} hrs</Duration>;
                 })
               : null}
           
