@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import "./App.css";
 import HomePage from "./components/HomePage/HomePage";
 import AddTaskForm from "./components/NewProjectForm/AddTaskForm";
@@ -22,21 +23,6 @@ class App extends React.Component {
     ]
   };
 
-  // componentDidMount() {
-  //   //get clients
-  //   axios
-  //   .get('/workspaces/5cf6e9a6b07987371ebcf369/clients')
-  //   .then(res => {
-  //     console.log(res)
-  //     this.setState({
-  //       // clients: res.data[0].name,
-  //       // clientPic: 'https://www.pinclipart.com/picdir/middle/12-129912_clip-art-images-sad-face-icon-png-transparent.png'
-  //     })
-  //   }).catch(err => {
-  //     console.log(err)
-  //   })
-
-
 addProjectToState = (project)=> {
   this.setState({
     projectList: [
@@ -52,6 +38,7 @@ addProjectToState = (project)=> {
     const { projectList } = this.state;
     return (
       <div>
+        <ToastContainer />
         <Route exact path="/" render={() => <HomePage projectList={projectList} {...this.props} submitAddTask={this.submitAddTask} />} />
         <Route
           exact
