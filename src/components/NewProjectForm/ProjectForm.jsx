@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ProductHeader from './ProductHeader';
-
+import addTasks from "./addtasks.png"
+import { thisExpression } from '@babel/types';
+const greySky = '#979797'
 const Div = styled.div`
     display: flex;
     height: 100vh;
@@ -31,6 +35,7 @@ const Label = styled.div`
     border-bottom: 1px solid #979797;
     max-width: 100%;
 `;
+
 const ProjectInput = styled.input`
   outline: none;
   border: none;
@@ -41,6 +46,9 @@ const ProjectInput = styled.input`
   font-size: 16px;
   font-weight: bold;
 `
+
+const greySky = '#979797';
+
 
 const ProjectLabel = styled.label`
   font-size: 12px;
@@ -53,69 +61,126 @@ const Input = styled.input`
     outline: none;
     background-color: #000000;
     color: white;
-    border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
+    border-left: ${props => (props.primary ? `1px solid ${greySky}` : 'none')};
     font-family: 'Montserrat';
     padding-top: 10px;
 `;
-const greySky = '#979797'
+
+const TasksForm = styled.form`
+background: #212121;
+display: flex;
+   justify-content: left;
+   padding: 1em 0;
+   flex-direction: column;
+  
+ button{
+   background: #212121;
+   color:${greySky};
+   border: none;
+   width: 50%;
+
+ }
+ input{
+  border-bottom: 1px solid ${greySky}
+  width: 100%;
+ }
+
+`
+
+
 
 class ProjectForm extends React.Component {
   state = {
     projectName: null,//string 
     clientName:null, //string 
     duration: null, //string hour 8
+    tasks : [],// array of strings
+    task: null
   }
+handleChange = (e) => {
+  e.preventDefault();
+  this.setState({
+    [e.target.name] : e.target.value
+  } 
+  )
+}
+handleTasksChange = (e) =>{
+  
+e.preventDefault()
+this.setState({
+  task: e.target.value
+})
+}
+handleTasksSubmit = (e)=>{
+  e.preventDefault();
 
-  handleChange = (e) => {
-    e.preventDefault();
-    this.setState({ [e.target.name] : e.target.value }) 
-  }
+  this.setState({
+    tasks: [...this.state.tasks, this.state.task]
+  })
 
-  handleSubmit = (e) =>{
-    e.preventDefault()
-    this.props.addProjectToState(this.state)
-    this.props.history.push("/")
-  }
-  render() {
-    return (
-    <Div>
-      <Form id="projectform" onSubmit={this.handleSubmit}>
-        <ProductHeader {...this.props}/>
-        <ProjectLabel htmlFor="Project">
-          PROJECT NAME
-          {' '}
-        </ProjectLabel>
-        <ProjectInput type="text" id="Project" name="projectName" onChange={this.handleChange} />
-        <Label>
-          CLIENT NAME 
-          {' '}
-          <Input type="text" name="clientName" onChange={this.handleChange}/>
-        </Label>
-        <Label>
-          DURATION
-          {' '}
-          <Input type="text" name="duration" onChange={this.handleChange}/>
-        </Label>
-      </Form>
-    </Div>
+}
+handleSubmit = (e) =>{
+e.preventDefault()
+this.props.addProjectToState(this.state)
+this.props.history.push("/")
+}
+
+ render() {
+  return (
+    <div>
+  <Div>
+        <Form id="projectform" onSubmit={this.handleSubmit}>
+          <ProductHeader {...this.props} />
+          <ProductLabel
+            htmlFor="Project"
+          >
+PROJECT NAME
+            {' '}
+            <br />
+          </ProjectLabel>
+          <Input
+            type="text"
+            id="Project"
+            name="projectName"
+            onChange={this.handleChange}
+          />
+
+
+      <div>
+      <Label  style={{
+        display: 'flex',
+        borderBottom: '1px solid '+greySky,
+        width: '100%',
+
+      }} >
+DURATION
+        {' '}
+        <br />
+        <Input type="text" name="duration"  onChange={this.handleChange}/>
+      </Label>
+      </div>
+      </div>
+    
+    </Form>
+    
+  </Div>
+    <ul style={{listStyleType: 'disc', background: "#212121", paddingLeft:' 5em'}}>
+      {this.state.tasks.map((task,i) =>{
+        return <li key={i} style={{ color: greySky, fontSize: '1.2rem'}}>{task}</li>
+      })}
+    </ul>
+  <TasksForm id="tasksform" onSubmit= {this.handleTasksSubmit}>
+    <button type="submit" >
+      <img src={addTasks} /> Add Tasks
+      </button>
+      <Input type="text" name="tasks"  onChange={this.handleTasksChange}/>
+      </TasksForm>
+      </div>
   )}
 }
 export default ProjectForm;
 
-        {/* Getting Rid Of Start And End Time with duration only */}
-          {/* <div style={{ width: '50%' }}>
-            <Label>
-                START TIME
-              {' '}
-              <br />
-              <Input type="text" name="timeStart" onChange={this.handleChange} placeholder="8am"/>
-            </Label>
-          </div>
-          <div style={{ borderLeft: '1px solid '+greySky }}>
-            <Label>
-              END TIME
-              {' '}
-              <br />
-              <Input type="text" name="timeEnd" onChange={this.handleChange} placeholder="5pm"/>
-            </Label>
-          </div> */}
+ProjectForm.propTypes = {
+  addProjectToState: PropTypes.func.isRequired,
+  history: PropTypes.shape(PropTypes.any).isRequired,
+};

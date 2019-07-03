@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import closebutton from "./closebutton.png"
+import closebutton from './closebutton.png';
+
 
 const Nav = styled.nav`
     display: flex;
@@ -57,23 +58,3 @@ const ProductHeader = () => {
 
 export default ProductHeader;
 
-       {/* <form>
-        <label htmlFor="Project" style={{ fontSize: '12px',marginLeft: '1em'} }>
-PROJECT NAME
-          {' '}
-          <br />
-          <input
-            type="text"
-            id="Project"
-            style={{
-              outline: 'none',
-              border: 'none',
-              marginTop: '10px',
-              borderBottom: '1px solid ' + greySky,
-              backgroundColor: '#383633',
-              color: 'white',
-              fontSize: '16px',
-            }}
-          />
-        </label>
-      </form> */}
