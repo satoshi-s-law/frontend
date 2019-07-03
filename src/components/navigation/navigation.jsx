@@ -10,7 +10,7 @@ const Nav = styled.nav`
     height: 70px;
     span {
         color: #ebbc77;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Rock Salt', sans-serif;
         font-size: 2.3rem;
         font-weight: 900;
         text-align: center;
