@@ -98,7 +98,6 @@ function ProjectList(props) {
 
       </p>
 
-
       <div>
         {projectList.map((project, i) => (
 

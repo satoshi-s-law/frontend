@@ -158,6 +158,7 @@ const PageDiv = styled.div`
 
 const CreateInvoice = (props) => {
   const { location } = props;
+  let duration = parseFloat(props.location.state.project.duration)
   return (
     <PageDiv>
       <Header>
@@ -180,42 +181,54 @@ const CreateInvoice = (props) => {
       </ContactOptionBar>
       <SendDiv>
         <BlankDiv />
-        <NavLink to="/success" activeStyle={{ color: '#ebbc77' }} style={{ color: '#ebbc77' }}>
-          {' '}
-          <Button>SEND</Button>
-          {' '}
-        </NavLink>
+        <Button>SEND</Button>
       </SendDiv>
       <ProjectDiv>
-        <ProjectName>{location != null ? location.state.project.projectName : null}</ProjectName>
-        <ClientName>{location != null ? location.state.project.clientName : null}</ClientName>
+        <ProjectName>
+          {props.location != null
+            ? props.location.state.project.projectName
+            : null}
+        </ProjectName>
+        <ClientName>
+          {props.location != null
+            ? props.location.state.project.clientName
+            : null}
+        </ClientName>
         <TaskDetailDiv>
           <Date>7/1/19</Date>
+          <Date>INITIAL PROJECT DURATION</Date>
+          <Date>{props.location != null
+            ? props.location.state.project.duration
+            : 0} hrs</Date>
+          
           <div>
-            <Task>Planning</Task>
-            <Task>Coding</Task>
-            <Task>Research</Task>
-            <Task>Prototyping</Task>
-            <Task>Polish Code</Task>
+            {props.location != null
+              ? props.location.state.project.tasks.map((task,i) => {
+                  return <Task key={i}>{task.taskValue}</Task>;
+                })
+              : null}
           </div>
           <div>
-            <Duration>{location != null ? location.state.project.duration : null}</Duration>
-            <Duration>12 hours</Duration>
-            <Duration>5 hours</Duration>
-            <Duration>2 hours</Duration>
-            <Duration>2 hours</Duration>
+          {props.location != null
+              ? props.location.state.project.tasks.map((task,i) => {
+                  console.log(task.Duration)
+                  duration += parseFloat(task.taskDuration);
+                  return <Duration key={i}>{task.taskDuration} hrs</Duration>;
+                })
+              : null}
+          
           </div>
         </TaskDetailDiv>
         <TaskTotal>
           <Date>TOTAL</Date>
           <Date>
-            {location != null ? location.state.project.duration : null}
-            {' '}
-hours
+            {props.location != null
+              ? duration
+              : null}{" "}
+            hours
           </Date>
         </TaskTotal>
       </ProjectDiv>
-
     </PageDiv>
   );
 };
