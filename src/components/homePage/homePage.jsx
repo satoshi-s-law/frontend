@@ -19,7 +19,7 @@ const HomePage = (props) => {
 
 export default HomePage;
 
-HomePage.propTypes = {
-  projectList: PropTypes.arrayOf(string).isRequired,
-  submitAddTask: PropTypes.func.isRequired,
-};
+// HomePage.propTypes = {
+//   projectList: PropTypes.arrayOf(string).isRequired,
+//   submitAddTask: PropTypes.func.isRequired,
+// };

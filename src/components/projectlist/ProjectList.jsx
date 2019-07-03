@@ -104,7 +104,7 @@ export default function ProjectList(props) {
         return ( 
           <Link to={{pathname: `/project/${i}`, state :{
             project: project,
-          }}} >
+          }}} key={i}>
           <div className={classes.projectcontainer} key={i}>
           <div>
           <p className={classes.projectname}>{project.projectName}</p>
