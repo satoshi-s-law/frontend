@@ -8,92 +8,54 @@ import { thisExpression } from "@babel/types";
 const greySky = "#979797";
 
 const Div = styled.div`
-  display: flex;
-  background-color: #212121;
-  width: 100%;
-  flex-direction: column;
-  form {
     display: flex;
-  flex-direction: column
-
-    height: 100vh;
-    background-color: #000000;
+    background-color: #383633;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-
-    @media(min-width: 1000px) {
-      padding: 0px 25% 0px 25%;
-      width: auto;
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-
 `;
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-`
-
-const Label = styled.div`
+const Label = styled.label`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px 0px 10px 20px;
+    padding: 1rem;
     color: white;
-    font-size: 1.2rem;
-    border-bottom: 1px solid #979797;
-    max-width: 100%;
+    background: #000;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    marginBottom: 0 0 2em 0;
+    border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
 `;
-
-const ProjectInput = styled.input`
-  outline: none;
-  border: none;
-  padding: 0px 0px 15px 20px;
-  border-bottom: 1px solid #979797;
-  background-color: #383633;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-`
-
-
-
-const ProjectLabel = styled.label`
-  font-size: 12px;
-  padding: 0px 0px 15px 20px;
-  background: #383633;
-  color: #ffffff;
-`
 const Input = styled.input`
-
     border: none;
     outline: none;
-    background-color: #000000;
+    background-color: #000;
     color: white;
-    border-left: ${props => (props.primary ? `1px solid ${greySky}` : 'none')};
+     font-size: 1.2em;
     font-family: 'Montserrat';
-    padding-top: 10px;
-
+    padding: 1em 0;
+  
 `;
 
+
 const TasksForm = styled.form`
-background: #212121;
+background: #383633;
 display: flex;
    justify-content: left;
    padding: 1em 0;
    flex-direction: column;
   
  button{
-   background: #212121;
+   background: #383633;
    color:${greySky};
    border: none;
    width: 50%;
 
  }
- input{
-  border-bottom: 1px solid ${greySky}
-  width: 100%;
- }
+ 
  h2{
    color: white;
    font-family: Montserrat;
@@ -105,6 +67,12 @@ display: flex;
 .button-input-container{
   display: flex;
   margin: 2em 0;
+  background: black;
+  input{
+  padding: 1em 0;
+  border-bottom: 1px solid ${greySky};
+    font-size: "1.6em",
+  }
 }
 `;
 
@@ -161,7 +129,7 @@ class ProjectForm extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div style={{background: "black",  height: "100vh"}}>
         <Div>
           <form id="projectform" onSubmit={this.handleSubmit}>
             <ProductHeader {...this.props} />
@@ -169,29 +137,34 @@ class ProjectForm extends React.Component {
               htmlFor="Project"
               style={{
                 fontSize: "12px",
-                paddingLeft: "1.6em",
-                paddingBottom: "10px",
-                background: "#383633",
-                color: "#fff"
+                paddingLeft: "1em",
+               
+
+              backgroundColor: "#383633",
+                color: "#fff",
+                  fontFamily: "Montserrat"
               }}
             >
               PROJECT NAME <br />
-            </label>
+
             <input
               type="text"
               id="Project"
               style={{
                 outline: "none",
                 border: "none",
-                paddingRight: "1.6em",
+                padding: "1em 1.6em 0 0",
                 borderBottom: "1px solid " + greySky,
                 backgroundColor: "#383633",
+                  fontSize: "1.2em",
+                  width: "100%",
                 color: "white",
-                fontSize: "16px"
+
               }}
               name="projectName"
               onChange={this.handleChange}
             />
+            </label>
 
             <Label>
               CLIENT NAME <br />
@@ -199,20 +172,21 @@ class ProjectForm extends React.Component {
                 type="text"
                 name="clientName"
                 onChange={this.handleChange}
+                style={{borderBottom: "1px solid " + greySky}}
               />
             </Label>
             <div
               style={{
                 display: "flex",
-                borderTop: "1px solid " + greySky,
+                  background: "black",
                 width: "100%"
               }}
             >
-              <div>
+
                 <Label
                   style={{
                     display: "flex",
-                    borderBottom: "1px solid " + greySky,
+
                     width: "100%"
                   }}
                 >
@@ -221,9 +195,10 @@ class ProjectForm extends React.Component {
                     type="text"
                     name="duration"
                     onChange={this.handleChange}
+                    style={{ borderBottom: "1px solid " + greySky}}
                   />
                 </Label>
-              </div>
+
             </div>
           </form>
         </Div>
@@ -249,19 +224,22 @@ class ProjectForm extends React.Component {
             <Label
               style={{
                 display: "flex",
-                borderRight: "1px solid " + greySky,
+
                 width: "50%"
               }}
               htmlFor="taskValue"
             >
+
               TASK TODO
               <Input
                 type="text"
                 name="taskValue"
                 id="taskValue"
+
                 onChange={this.handleTasksChange}
               />
             </Label>
+
 
             <Label
               style={{
