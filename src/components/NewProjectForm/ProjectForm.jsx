@@ -26,7 +26,7 @@ const Label = styled.label`
     background: #000;
     font-size: 12px;
     font-family: 'Montserrat';
-    margin: 2em 0;
+    marginBottom: 0 0 2em 0;
     border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
 `;
 const Input = styled.input`
@@ -34,7 +34,7 @@ const Input = styled.input`
     outline: none;
     background-color: #000;
     color: white;
-   
+     font-size: 1.2em;
     font-family: 'Montserrat';
     padding: 1em 0;
   
@@ -71,7 +71,7 @@ display: flex;
   input{
   padding: 1em 0;
   border-bottom: 1px solid ${greySky};
-  font-size: 2.0rem;
+    font-size: "1.6em",
   }
 }
 `;
@@ -138,7 +138,8 @@ class ProjectForm extends React.Component {
               style={{
                 fontSize: "12px",
                 paddingLeft: "1em",
-                paddingBottom: "1em",
+               
+
               backgroundColor: "#383633",
                 color: "#fff",
                   fontFamily: "Montserrat"
@@ -152,12 +153,13 @@ class ProjectForm extends React.Component {
               style={{
                 outline: "none",
                 border: "none",
-                paddingRight: "1.6em",
+                padding: "1em 1.6em 0 0",
                 borderBottom: "1px solid " + greySky,
                 backgroundColor: "#383633",
-                  width: "50$",
+                  fontSize: "1.2em",
+                  width: "100%",
                 color: "white",
-                fontSize: "16px"
+
               }}
               name="projectName"
               onChange={this.handleChange}
