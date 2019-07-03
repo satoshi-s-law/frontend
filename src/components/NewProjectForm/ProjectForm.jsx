@@ -13,30 +13,66 @@ const Div = styled.div`
   width: 100%;
   form {
     display: flex;
+
+
+    height: 100vh;
+    background-color: #000000;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+    @media(min-width: 1000px) {
+      padding: 0px 25% 0px 25%;
+      width: auto;
+    }
+
+`;
+
+const Form = styled.form`
+    display: flex;
     flex-direction: column;
     width: 100%;
-  }
-`;
+`
 
 const Label = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem;
-  color: white;
-  font-size: 12px;
-  font-family: "Montserrat";
-  margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0px 10px 20px;
+    color: white;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #979797;
+    max-width: 100%;
 `;
 
-
-const Input = styled.input`
-  border: none;
+const ProjectInput = styled.input`
   outline: none;
-  background-color: #212121;
+  border: none;
+  padding: 0px 0px 15px 20px;
+  border-bottom: 1px solid #979797;
+  background-color: #383633;
   color: white;
-  border-left: ${props => (props.primary ? "1px solid " + greySky : "none")};
-  font-family: "Montserrat";
+  font-size: 16px;
+  font-weight: bold;
+`
+
+
+
+const ProjectLabel = styled.label`
+  font-size: 12px;
+  padding: 0px 0px 15px 20px;
+  background: #383633;
+  color: #ffffff;
+`
+const Input = styled.input`
+
+    border: none;
+    outline: none;
+    background-color: #000000;
+    color: white;
+    border-left: ${props => (props.primary ? `1px solid ${greySky}` : 'none')};
+    font-family: 'Montserrat';
+    padding-top: 10px;
+
 `;
 
 const TasksForm = styled.form`
@@ -250,10 +286,7 @@ class ProjectForm extends React.Component {
       </div>
     );
   }
+
 }
 export default ProjectForm;
 
-// ProjectForm.propTypes = {
-//   addProjectToState: PropTypes.func.isRequired,
-//   history: PropTypes.shape(PropTypes.any).isRequired,
-// };

@@ -11,7 +11,12 @@ const H1 = styled.h1`
     color: white;
     background-color: #000000;
     padding: 20px 20px;
-`;
+
+    @media(min-width: 1000px) {
+        text-align: center;
+        padding-top: 30px;
+    }
+`
 
 const Button = styled.button`
     color: #ebbc77;
