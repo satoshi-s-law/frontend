@@ -158,7 +158,7 @@ const PageDiv = styled.div`
 
 const CreateInvoice = (props) => {
   const { location } = props;
-  let duration = parseFloat(props.location.state.project.duration)
+  let duration = parseFloat(location.state.project.duration)
   return (
     <PageDiv>
       <Header>

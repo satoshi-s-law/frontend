@@ -1,10 +1,10 @@
-
 import React from "react";
-
 import styled from "styled-components";
+import { toast } from "react-toastify";
 import ProductHeader from "./ProductHeader";
 import addTasks from "./addtasks.png";
-import { thisExpression } from "@babel/types";
+// import { thisExpression } from "@babel/types";
+
 const greySky = "#979797";
 
 const Div = styled.div`
@@ -26,7 +26,7 @@ const Label = styled.label`
     background: #000;
     font-size: 12px;
     font-family: 'Montserrat';
-    marginBottom: 0 0 2em 0;
+    margin-bottom: 0 0 2em 0;
     border-left: ${props => (props.primary ? '1px solid '+ greySky : 'none')};
 `;
 const Input = styled.input`
@@ -90,22 +90,20 @@ class ProjectForm extends React.Component {
 
   handleChange = e => {
     e.preventDefault();
-    console.log(e.target.value)
     this.setState({
       [e.target.name]: e.target.value
     });
   };
   handleTasksChange = e => {
     e.preventDefault();
-    console.log(e.target.name);
-    if (e.target.name == "taskDuration") {
+    if (e.target.name === "taskDuration") {
       this.setState({
         task: {
           ...this.state.task,
           taskDuration: e.target.value
         }
       });
-    } else if (e.target.name == "taskValue") {
+    } else if (e.target.name === "taskValue") {
       this.setState({
         task: {
           ...this.state.task,
@@ -113,19 +111,27 @@ class ProjectForm extends React.Component {
         }
       });
     }
-    console.log(this.state);
   };
   handleTasksSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    this.setState({
-      tasks: [...this.state.tasks, this.state.task]
-    });
+    const {taskDuration, taskValue} = this.state.tasks
+    if(!taskDuration && !taskValue){
+      toast.error('kindly add your task duration and value')
+    } else {
+      this.setState({
+        tasks: [...this.state.tasks, this.state.task]
+      });
+    }
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addProjectToState(this.state);
-    this.props.history.push("/");
+    const {projectName, clientName, duration} = this.state;
+    if (!projectName && !clientName && !duration) {
+      toast.error('project name client name and duration are required')
+    } else {
+      this.props.addProjectToState(this.state);
+      this.props.history.push("/");
+    }
   };
   render() {
     return (
@@ -138,9 +144,7 @@ class ProjectForm extends React.Component {
               style={{
                 fontSize: "12px",
                 paddingLeft: "1em",
-
-
-              backgroundColor: "#383633",
+                backgroundColor: "#383633",
                 color: "#fff",
                   fontFamily: "Montserrat"
               }}
@@ -229,17 +233,14 @@ class ProjectForm extends React.Component {
               }}
               htmlFor="taskValue"
             >
-
               TASK TODO
               <Input
                 type="text"
                 name="taskValue"
                 id="taskValue"
-
                 onChange={this.handleTasksChange}
               />
             </Label>
-
 
             <Label
               style={{
@@ -259,7 +260,7 @@ class ProjectForm extends React.Component {
             </Label>
           </div>
           <button type="submit">
-            <img src={addTasks} /> Add Tasks
+            <img src={addTasks} alt="src"/> Add Tasks
           </button>
         </TasksForm>
       </div>
