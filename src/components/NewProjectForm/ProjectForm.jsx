@@ -14,7 +14,7 @@ const Div = styled.div`
   flex-direction: column;
   form {
     display: flex;
-
+  flex-direction: column
 
     height: 100vh;
     background-color: #000000;
