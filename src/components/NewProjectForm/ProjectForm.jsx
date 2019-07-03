@@ -8,34 +8,62 @@ import { thisExpression } from '@babel/types';
 const greySky = '#979797'
 const Div = styled.div`
     display: flex;
-    background-color: #212121;
+    height: 100vh;
+    background-color: #000000;
     width: 100%;
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+    @media(min-width: 1000px) {
+      padding: 0px 25% 0px 25%;
+      width: auto;
     }
 `;
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`
 
 const Label = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
+    padding: 10px 0px 10px 20px;
     color: white;
-    font-size: 12px;
-    font-family: 'Montserrat';
-    margin-left: 1em;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #979797;
+    max-width: 100%;
 `;
+
+const ProjectInput = styled.input`
+  outline: none;
+  border: none;
+  padding: 0px 0px 15px 20px;
+  border-bottom: 1px solid #979797;
+  background-color: #383633;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+`
+
 const greySky = '#979797';
 
+
+const ProjectLabel = styled.label`
+  font-size: 12px;
+  padding: 0px 0px 15px 20px;
+  background: #383633;
+  color: #ffffff;
+`
 const Input = styled.input`
     border: none;
     outline: none;
-    background-color: #212121;
+    background-color: #000000;
     color: white;
     border-left: ${props => (props.primary ? `1px solid ${greySky}` : 'none')};
     font-family: 'Montserrat';
+    padding-top: 10px;
 `;
 
 const TasksForm = styled.form`
@@ -62,7 +90,6 @@ display: flex;
 
 
 class ProjectForm extends React.Component {
-  
   state = {
     projectName: null,//string 
     clientName:null, //string 
@@ -70,7 +97,6 @@ class ProjectForm extends React.Component {
     tasks : [],// array of strings
     task: null
   }
-
 handleChange = (e) => {
   e.preventDefault();
   this.setState({
@@ -98,38 +124,23 @@ e.preventDefault()
 this.props.addProjectToState(this.state)
 this.props.history.push("/")
 }
+
  render() {
   return (
     <div>
   <Div>
-        <form id="projectform" onSubmit={this.handleSubmit}>
+        <Form id="projectform" onSubmit={this.handleSubmit}>
           <ProductHeader {...this.props} />
-          <label
+          <ProductLabel
             htmlFor="Project"
-            style={{
-              fontSize: '12px',
-              paddingLeft: '1.6em',
-              paddingBottom: '10px',
-              background: '#383633',
-              color: '#fff',
-            }}
           >
 PROJECT NAME
             {' '}
             <br />
-          </label>
-          <input
+          </ProjectLabel>
+          <Input
             type="text"
             id="Project"
-            style={{
-              outline: 'none',
-              border: 'none',
-              paddingRight: '1.6em',
-              borderBottom: `1px solid ${greySky}`,
-              backgroundColor: '#383633',
-              color: 'white',
-              fontSize: '16px',
-            }}
             name="projectName"
             onChange={this.handleChange}
           />
@@ -150,7 +161,7 @@ DURATION
       </div>
       </div>
     
-    </form>
+    </Form>
     
   </Div>
     <ul style={{listStyleType: 'disc', background: "#212121", paddingLeft:' 5em'}}>
@@ -165,7 +176,7 @@ DURATION
       <Input type="text" name="tasks"  onChange={this.handleTasksChange}/>
       </TasksForm>
       </div>
-)}
+  )}
 }
 export default ProjectForm;
 
