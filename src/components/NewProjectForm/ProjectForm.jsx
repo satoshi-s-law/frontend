@@ -1,9 +1,12 @@
+
 import React from "react";
+
 import styled from "styled-components";
 import ProductHeader from "./ProductHeader";
 import addTasks from "./addtasks.png";
 import { thisExpression } from "@babel/types";
 const greySky = "#979797";
+
 const Div = styled.div`
   display: flex;
   background-color: #212121;
@@ -26,6 +29,7 @@ const Label = styled.div`
   margin-left: 1em;
 `;
 
+
 const Input = styled.input`
   border: none;
   outline: none;
@@ -34,6 +38,7 @@ const Input = styled.input`
   border-left: ${props => (props.primary ? "1px solid " + greySky : "none")};
   font-family: "Montserrat";
 `;
+
 const TasksForm = styled.form`
 background: #212121;
 display: flex;
@@ -80,6 +85,7 @@ class ProjectForm extends React.Component {
 
   handleChange = e => {
     e.preventDefault();
+    console.log(e.target.value)
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -113,7 +119,6 @@ class ProjectForm extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.addProjectToState(this.state);
     this.props.history.push("/");
   };
@@ -247,3 +252,8 @@ class ProjectForm extends React.Component {
   }
 }
 export default ProjectForm;
+
+// ProjectForm.propTypes = {
+//   addProjectToState: PropTypes.func.isRequired,
+//   history: PropTypes.shape(PropTypes.any).isRequired,
+// };

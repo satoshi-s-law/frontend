@@ -4,18 +4,18 @@ import "./App.css";
 import HomePage from "./components/HomePage/HomePage";
 import AddTaskForm from "./components/NewProjectForm/AddTaskForm";
 import CreateInvoice from "./components/CreateInvoice/CreateInvoice";
-
+import SentInvoice from "./components/SentInvoice/SentInvoice"
 class App extends React.Component {
   state = {
     projectList: [
       {
         projectName: "Code Hackathon",
         clientName: "Lambda School",
-        duration: 5,
+        duration: 50,
         tasks: [
           {
             taskValue: "walk the dog",
-            taskDuration: 50
+            taskDuration: 5
           }
         ]
       }
@@ -36,55 +36,29 @@ class App extends React.Component {
   //     console.log(err)
   //   })
 
-  //   axios
-  //   .get('/workspaces/5cf6e9a6b07987371ebcf369/projects')
-  //   .then(res => {
-  //     console.log(res)
-  //     this.setState({
-  //       // projectList : [
-  //       //   {
-  //       //     projectName: res.data.name,
-  //       //     clientName: res.data.clientName,
-  //       //     hourlyRate: res.data.hourlyRate
-  //       //   }
-  //       // ]
-  //       projects: res.data
-  //     })
-  //   }).catch(err => {
-  //     console.log(err)
-  //   })
 
-  // }
+addProjectToState = (project)=> {
+  this.setState({
+    projectList: [
+      ...this.state.projectList, project,
+    ],
+  });
+}
 
-  addProjectToState = project => {
-    console.log(project);
-    this.setState({
-      projectList: [...this.state.projectList, project]
-    });
-  };
-  submitAddTask = () => {};
-  //have this base projectlist here. In AddToTask, projectlist will push objects into it
-  //Projectlsit will also map over projects, and display time accordingly
+
+  // have this base projectlist here. In AddToTask, projectlist will push objects into it
+  // Projectlsit will also map over projects, and display time accordingly
   render() {
+    const { projectList } = this.state;
     return (
       <div>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <HomePage
-              projectList={this.state.projectList}
-              {...this.props}
-              submitAddTask={this.submitAddTask}
-            />
-          )}
-        />
+        <Route exact path="/" render={() => <HomePage projectList={projectList} {...this.props} submitAddTask={this.submitAddTask} />} />
         <Route
           exact
           path="/add-task"
           render={props => (
             <AddTaskForm
-              projectList={this.state.projectList}
+              projectList={projectList}
               addProjectToState={this.addProjectToState}
               {...props}
             />
@@ -93,11 +67,12 @@ class App extends React.Component {
         <Route
           exact
           path="/project/:id"
-          render={props => {
-            return (
-              <CreateInvoice projectList={this.state.projectList} {...props} />
-            );
-          }}
+          render={props => <CreateInvoice projectList={projectList} {...props} />}
+        />
+        <Route
+          exact
+          path="/success"
+          component={SentInvoice}
         />
       </div>
     );

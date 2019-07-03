@@ -3,7 +3,7 @@ import ProjectForm from './ProjectForm';
 
 // form thing to fill out
 
-const AddTaskForm = (props) => (
+const AddTaskForm = props => (
 
   <div>
     <ProjectForm {...props} />
